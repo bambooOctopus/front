@@ -1,0 +1,17 @@
+ axios.post(SIGN_IN_URL, {user: {email: "travis@oct.com", password: "password"} ,
+      headers: {
+          "Content-type": "application/json"
+      }}).then(function (response) {
+        console.log(response)
+      }).catch(function (error) {
+        console.log(error)
+      })
+
+
+      axios.post(SIGN_UP_URL, { user: {email: "stacey@oct.com", password: "password", password_confirmation: "password"}}).then(function (response) {
+        console.log(response)
+      }).catch(function (error) {
+        console.log(error)
+      })
+  
+     
