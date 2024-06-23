@@ -1,4 +1,5 @@
 .habit-bar {
     border: solid 1px lightgray;
     display: flex;
+    justify-content: space-evenly;
 }

@@ -8,7 +8,7 @@ import { LogOutButton } from "./LogOut"
 export const Header = () => {
     return (
         <div className="header">            
-            <div style={{display: "flex"}}>
+            <div style={{display: "flex", alignItems: "center", justifyContent: "space-evenly"}}>
                 <HamburgerMenu />
                 <LogOutButton />            
                 <NotificationsBar />
