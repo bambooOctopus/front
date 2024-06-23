@@ -48,9 +48,11 @@ export const SignIn = () => {
 
     }
 
-    window.document.addEventListener("visibilitychange", (event) => {
-        console.log(event)
-    })
+    // note: trying to figure out how to fix websocket issues on mobile
+    // this seems like a small fix
+    // window.document.addEventListener("visibilitychange", (event) => {
+    //     console.log(event)
+    // })
     
     return (
         <div className="auth-div">
