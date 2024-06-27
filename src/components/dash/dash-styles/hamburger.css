@@ -55,6 +55,7 @@ li {
 
 li:first-child {
     margin-top: .8rem;
+    border-top: solid 1px whitesmoke;
 }
 
 li:last-child {
@@ -64,7 +65,7 @@ li:last-child {
 .burger-menu {
     background-color: lightgray;
     width: 97vw;
-    min-height: 40vh;
+    
     position: fixed;   
     left: -100%; 
     top: 7%;
@@ -78,8 +79,7 @@ li:last-child {
 
 .burger-menu.active {
     background-color: lightgray;
-    width: 97vw;
-    min-height: 40vh;
+    
     position: fixed;
     left: 0;    
     top: 7%;

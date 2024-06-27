@@ -1,3 +1,57 @@
-.footer {
-    border: solid 1px lightgray;
+.footer {    
+    border: solid 1px lightblue;
+    display: flex;
+    justify-content: space-between;        
+    align-items: center;
+    width: 100vw;
+    height: 2.5rem;    
+    position: fixed;
+    bottom: 0;
+}
+
+.recent-models {
+    display: flex;
+    gap: .5rem;
+    margin-left: .5rem;
+}
+
+.footer-plus {
+    background-color: lightgreen;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 1.7rem;
+    margin-right: .5rem;  
+    transition: 0.3s;  
+}
+
+.footer-plus.active {
+    transform: rotate(45deg);
+}
+
+
+.footer-menu {
+    justify-content: right;
+    position: fixed;
+    right: -110%;
+    bottom: 10%;
+    background-color: lightgray;
+    width: 98vw;
+    list-style: none;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    transition: 0.3s;
+    text-align: center;
+    
+    
+}
+
+.footer-menu.active {
+    position: fixed;
+    right: 0%;
+    bottom: 10%;
+    transition: 0.3s;
 }
