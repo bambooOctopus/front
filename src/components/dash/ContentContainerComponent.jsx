@@ -7,6 +7,7 @@ import { HabitBar } from "./HabitBarComponent"
 
 export const ContentContainer = () => {
     const [ currentDate, setCurrentDate ] = useState("")
+    const [ currentContent, setCurrentContent ] = useState("DayComponent")
 
     useEffect(() => {
         const dt = DateTime.now()
@@ -15,10 +16,12 @@ export const ContentContainer = () => {
         
     }, [])
 
+    
+
     return (
         <div className="content-container">
-            <DateNav currentDate={currentDate} setCurrentDate={setCurrentDate} />
-            <HabitBar />
+            <DateNav currentDate={currentDate} setCurrentDate={setCurrentDate} currentContent={currentContent} setCurrentContent={setCurrentContent} />
+            <HabitBar currentContent={currentContent} setCurrentContent={setCurrentContent} />
             <div className="content"></div>
         </div>
     )

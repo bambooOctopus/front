@@ -12,9 +12,9 @@ export const Footer = () => {
     return (
         <div className="footer">
             <div className="recent-models">
-                <button>todo</button>
-                <button>grocery</button>
-                <button>event</button>
+                <button className="recent-button">todo</button>
+                <button className="recent-button">grocery</button>
+                <button className="recent-button">event</button>
             </div>
             <div className="footer-plus" onClick={handlePlusButtonClick}>+</div>
 

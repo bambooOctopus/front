@@ -55,3 +55,12 @@
     bottom: 10%;
     transition: 0.3s;
 }
+
+.recent-button {
+    padding: .3rem .5rem;
+    border: none;
+    background-color: orange;
+    border-radius: 6px;
+    text-align: center;
+
+}
