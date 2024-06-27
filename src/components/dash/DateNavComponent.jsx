@@ -10,7 +10,8 @@ export const DateNav = ({currentDate, setCurrentDate}) => {
         // format currentDate into date obj
         // minus one day
         // set new currentDate
-        const formattedDate = DateTime.fromFormat(currentDate, "MMMM dd")
+        console.log(currentDate)
+        const formattedDate = DateTime.fromFormat(currentDate, "MMMM d")
         const newDate = formattedDate.minus({days: 1})
         const newDateString = newDate.toLocaleString({month: 'long', day: 'numeric'})
         setCurrentDate(newDateString)
@@ -21,7 +22,7 @@ export const DateNav = ({currentDate, setCurrentDate}) => {
         // format currentDate into date obj
         // add one day
         // set new currentDate
-        const formattedDate = DateTime.fromFormat(currentDate, "MMMM dd")
+        const formattedDate = DateTime.fromFormat(currentDate, "MMMM d")
         const newDate = formattedDate.plus({days: 1})
         const newDateString = newDate.toLocaleString({month: 'long', day: 'numeric'})
         setCurrentDate(newDateString)
