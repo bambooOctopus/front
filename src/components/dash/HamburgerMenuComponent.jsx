@@ -1,16 +1,34 @@
-export const HamburgerMenu = () => {
-    // this should contain state that holds whether menu is open or not
-    // and if it's open there is a select menu that drops down
-    // links to all the component main pages
-    // lists, schedules, logs, notes, etc
+import { useState } from "react"
+
+import { LogOutButton } from "./LogOut"
+
+export const HamburgerMenu = () => { 
+
+    const handleToggleBurgerClick = (event) => {
+        const hamburger = document.querySelector(".hamburger")
+        hamburger.classList.toggle("active")
+        
+        const navMenu = document.querySelector(".burger-menu")
+        navMenu.classList.toggle("active")               
+    }
 
     return (
-        <div className="hamburger">
+        <>
+        <div className="hamburger" onClick={handleToggleBurgerClick}>
             <div className="patty"></div>
             <div className="patty"></div>
             <div className="patty"></div>
             <div className="patty"></div>
             <div className="patty"></div>
         </div>
+
+        <ul className="burger-menu">
+            <li>lists</li>
+            <li>invitations</li>
+            <li>shareables</li>
+            <li>profile</li>
+            <li><LogOutButton /></li>            
+        </ul>
+        </>
     )
 }

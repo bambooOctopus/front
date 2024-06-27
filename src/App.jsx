@@ -14,6 +14,7 @@ import './components/dash/dash-styles/hamburger.css'
 import './components/dash/dash-styles/dash-buttons.css'
 import './components/dash/dash-styles/message-bar.css'
 import './components/dash/dash-styles/notifications-bar.css'
+import './components/dash/dash-styles/header.css'
 
 
 
