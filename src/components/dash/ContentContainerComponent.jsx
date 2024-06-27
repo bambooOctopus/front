@@ -4,6 +4,8 @@ import { DateTime } from "luxon"
 
 import { DateNav } from "./DateNavComponent"
 import { HabitBar } from "./HabitBarComponent"
+import { MonthComponent } from "../calendar/MonthComponent"
+import { DayComponent } from "../calendar/DayComponent"
 
 export const ContentContainer = () => {
     const [ currentDate, setCurrentDate ] = useState("")
@@ -11,7 +13,7 @@ export const ContentContainer = () => {
 
     useEffect(() => {
         const dt = DateTime.now()
-        const dateString = dt.toLocaleString({month: 'long', day: 'numeric'})
+        const dateString = dt.toLocaleString({month: 'short', day: 'numeric'})
         {currentDate == "" ? setCurrentDate(dateString) : null}        
         
     }, [])
@@ -22,7 +24,16 @@ export const ContentContainer = () => {
         <div className="content-container">
             <DateNav currentDate={currentDate} setCurrentDate={setCurrentDate} currentContent={currentContent} setCurrentContent={setCurrentContent} />
             <HabitBar currentContent={currentContent} setCurrentContent={setCurrentContent} />
-            <div className="content"></div>
+            <div className="content">
+                {currentContent == "MonthComponent" ?
+                    <MonthComponent />
+                :
+                currentContent == "DayComponent" ?
+                    <DayComponent />
+                :
+                    null
+                }
+            </div>
         </div>
     )
 }

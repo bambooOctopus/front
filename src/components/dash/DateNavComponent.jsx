@@ -15,9 +15,9 @@ export const DateNav = ({currentDate, setCurrentDate, currentContent, setCurrent
             // format currentDate into date obj
             // minus one day
             // set new currentDate        
-            const formattedDate = DateTime.fromFormat(currentDate, "MMMM d")
+            const formattedDate = DateTime.fromFormat(currentDate, "MMM d")
             const newDate = formattedDate.minus({days: 1})
-            const newDateString = newDate.toLocaleString({month: 'long', day: 'numeric'})
+            const newDateString = newDate.toLocaleString({month: 'short', day: 'numeric'})
             setCurrentDate(newDateString)
         }
     
@@ -26,9 +26,9 @@ export const DateNav = ({currentDate, setCurrentDate, currentContent, setCurrent
             // format currentDate into date obj
             // add one day
             // set new currentDate
-            const formattedDate = DateTime.fromFormat(currentDate, "MMMM d")
+            const formattedDate = DateTime.fromFormat(currentDate, "MMM d")
             const newDate = formattedDate.plus({days: 1})
-            const newDateString = newDate.toLocaleString({month: 'long', day: 'numeric'})
+            const newDateString = newDate.toLocaleString({month: 'short', day: 'numeric'})
             setCurrentDate(newDateString)
             
         }
@@ -47,7 +47,8 @@ export const DateNav = ({currentDate, setCurrentDate, currentContent, setCurrent
         )
     }
 
-    const MonthPicker = () => {             
+    const MonthPicker = () => {    
+        console.log(currentMonth)         
 
         const handleLastMonthClick = (event) => {
             // format date to obj
@@ -86,11 +87,12 @@ export const DateNav = ({currentDate, setCurrentDate, currentContent, setCurrent
     }
 
 
-    useEffect(() => {
-        const formattedDate = DateTime.fromFormat(currentDate, "MMMM d")
+    useEffect(() => {  
+        let dt
+        {currentDate == "" ? dt = DateTime.now().toLocaleString({month: 'short', day: 'numeric'}): dt = currentDate}
         
-        const monthDateString = formattedDate.toLocaleString({month: 'short', year: 'numeric'})
-        console.log(monthDateString)
+        const formattedDate = DateTime.fromFormat(dt, "MMM d")                
+        const monthDateString = formattedDate.toLocaleString({month: 'short', year: 'numeric'})        
         setCurrentMonth(monthDateString)
 
 
