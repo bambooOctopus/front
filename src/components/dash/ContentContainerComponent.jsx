@@ -9,6 +9,7 @@ import { DayComponent } from "../calendar/DayComponent"
 
 export const ContentContainer = () => {
     const [ currentDate, setCurrentDate ] = useState("")
+    const [ currentMonth, setCurrentMonth ] = useState("")
     const [ currentContent, setCurrentContent ] = useState("DayComponent")
 
     useEffect(() => {
@@ -18,11 +19,20 @@ export const ContentContainer = () => {
         
     }, [])
 
+    useEffect(() => {
+        const dt = DateTime.now()
+        const monthString = dt.toLocaleString({month: 'short', year: 'numeric'})        
+        {currentMonth == "" ? setCurrentMonth(monthString) : null}        
+
+    })
+
     
 
     return (
         <div className="content-container">
-            <DateNav currentDate={currentDate} setCurrentDate={setCurrentDate} currentContent={currentContent} setCurrentContent={setCurrentContent} />
+            <DateNav currentDate={currentDate} setCurrentDate={setCurrentDate} currentContent={currentContent} setCurrentContent={setCurrentContent}
+                currentMonth={currentMonth} setCurrentMonth={setCurrentMonth}
+            />
             <HabitBar currentContent={currentContent} setCurrentContent={setCurrentContent} />
             <div className="content">
                 {currentContent == "MonthComponent" ?

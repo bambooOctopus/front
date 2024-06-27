@@ -2,11 +2,9 @@ import { useState } from "react"
 import { useEffect } from "react"
 import { DateTime } from "luxon"
 
-export const DateNav = ({currentDate, setCurrentDate, currentContent, setCurrentContent}) => {
+export const DateNav = ({currentDate, setCurrentDate, currentContent, setCurrentContent, currentMonth, setCurrentMonth}) => {
     const leftButton = "<"
-    const rightButton = ">"
-
-    const [ currentMonth, setCurrentMonth ] = useState("")
+    const rightButton = ">"    
 
     const DayPicker = () => {
 
@@ -47,17 +45,16 @@ export const DateNav = ({currentDate, setCurrentDate, currentContent, setCurrent
         )
     }
 
-    const MonthPicker = () => {    
-        console.log(currentMonth)         
+    const MonthPicker = () => {                   
 
         const handleLastMonthClick = (event) => {
             // format date to obj
             // subtract one month
             // set new current month
             event.preventDefault()
-            const formattedDate = DateTime.fromFormat(currentMonth, "MMM yyyy")
-            const newMonth = formattedDate.minus({month: 1})            
-            const newMonthString = newMonth.toLocaleString({month: 'short', year: 'numeric'}) 
+            const formattedMonth = DateTime.fromFormat(currentMonth, "MMM yyyy")
+            const newMonth = formattedMonth.minus({month: 1})                       
+            const newMonthString = newMonth.toLocaleString({month: 'short', year: 'numeric'})      
             setCurrentMonth(newMonthString)
         }
 
@@ -73,7 +70,7 @@ export const DateNav = ({currentDate, setCurrentDate, currentContent, setCurrent
         }
 
         const handleDayCalendarClick = (event) => {
-            event.preventDefault()
+            event.preventDefault()            
             setCurrentContent("DayComponent")
         }
 
@@ -84,21 +81,7 @@ export const DateNav = ({currentDate, setCurrentDate, currentContent, setCurrent
                 <button onClick={handleNextMonthClick} className="date-button">{rightButton}</button>
             </>
         )
-    }
-
-
-    useEffect(() => {  
-        let dt
-        {currentDate == "" ? dt = DateTime.now().toLocaleString({month: 'short', day: 'numeric'}): dt = currentDate}
-        
-        const formattedDate = DateTime.fromFormat(dt, "MMM d")                
-        const monthDateString = formattedDate.toLocaleString({month: 'short', year: 'numeric'})        
-        setCurrentMonth(monthDateString)
-
-
-    }, [])
-    
-    
+    }  
 
 
     return (
