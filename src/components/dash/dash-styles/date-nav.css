@@ -1,5 +1,5 @@
-.date-nav {
-    border: solid 1px lightgray;  
+.date-nav {    
+    background-color: rgb(173, 216, 230, .8);
     padding: .3rem .5rem;
     display: flex;
     align-items: center;

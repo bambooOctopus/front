@@ -1,8 +1,8 @@
 .content-container {
-    height: 100%;
-    border: solid 2px lightgray;
+    height: 100%;    
 }
 
-.content {    
-    border: solid 2px lightgray;
+.content {        
+    display: flex;
+    justify-content: center;    
 }

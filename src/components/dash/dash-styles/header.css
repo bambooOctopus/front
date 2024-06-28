@@ -1,12 +1,14 @@
 .header {
     display: flex;
     flex-direction: column;    
+    
 }
 
 .ham-notification-bar {    
     display: flex;
     align-items: center;
-    padding: 0.3rem 0rem;
+    padding: .5rem 0rem;
     gap: 1rem;
+    background-color: lightblue;
     
 }

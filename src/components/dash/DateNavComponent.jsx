@@ -32,7 +32,7 @@ export const DateNav = ({currentDate, setCurrentDate, currentContent, setCurrent
         }
 
         const handleMonthCalendarClick = (event) => {
-            event.preventDefault()
+            event.preventDefault()                                    
             setCurrentContent("MonthComponent")
         }
         
@@ -70,7 +70,11 @@ export const DateNav = ({currentDate, setCurrentDate, currentContent, setCurrent
         }
 
         const handleDayCalendarClick = (event) => {
-            event.preventDefault()            
+            event.preventDefault()  
+            
+            const monthComponent = document.querySelector(".month-component")
+            monthComponent.classList.remove("active")
+            
             setCurrentContent("DayComponent")
         }
 

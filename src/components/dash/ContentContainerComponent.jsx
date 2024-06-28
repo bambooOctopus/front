@@ -7,12 +7,13 @@ import { HabitBar } from "./HabitBarComponent"
 import { MonthComponent } from "../calendar/MonthComponent"
 import { DayComponent } from "../calendar/DayComponent"
 
-export const ContentContainer = () => {
+export const ContentContainer = ({currentContent, setCurrentContent}) => {
     const [ currentDate, setCurrentDate ] = useState("")
     const [ currentMonth, setCurrentMonth ] = useState("")
-    const [ currentContent, setCurrentContent ] = useState("DayComponent")
+    
 
     useEffect(() => {
+        console.log('render')
         const dt = DateTime.now()
         const dateString = dt.toLocaleString({month: 'short', day: 'numeric'})
         {currentDate == "" ? setCurrentDate(dateString) : null}        
@@ -24,7 +25,7 @@ export const ContentContainer = () => {
         const monthString = dt.toLocaleString({month: 'short', year: 'numeric'})        
         {currentMonth == "" ? setCurrentMonth(monthString) : null}        
 
-    })
+    }, [])
 
     
 

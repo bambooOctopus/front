@@ -9,7 +9,13 @@ export const HamburgerMenu = () => {
         hamburger.classList.toggle("active")
         
         const navMenu = document.querySelector(".burger-menu")
-        navMenu.classList.toggle("active")               
+        navMenu.classList.toggle("active") 
+        
+        const plusButton = document.querySelector(".footer-plus")        
+        const footerMenu = document.querySelector(".footer-menu")
+        
+        footerMenu.classList.remove("active")
+        plusButton.classList.remove("active") 
     }
 
     return (
@@ -23,6 +29,7 @@ export const HamburgerMenu = () => {
         </div>
 
         <ul className="burger-menu">
+            <li>home</li>
             <li>lists</li>
             <li>invitations</li>
             <li>shareables</li>

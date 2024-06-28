@@ -6,6 +6,12 @@ export const Footer = () => {
         const footerMenu = document.querySelector(".footer-menu")
         footerMenu.classList.toggle("active")
         plusButton.classList.toggle("active")
+
+        const hamburger = document.querySelector(".hamburger")
+        hamburger.classList.remove("active")
+        
+        const navMenu = document.querySelector(".burger-menu")
+        navMenu.classList.remove("active") 
         
     }
 

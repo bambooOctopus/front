@@ -1,5 +1,6 @@
 .footer {    
     border: solid 1px lightblue;
+    background-color: rgb(173, 216, 230, .9);
     display: flex;
     justify-content: space-between;        
     align-items: center;
@@ -7,6 +8,7 @@
     height: 2.5rem;    
     position: fixed;
     bottom: 0;
+    opacity: 1;
 }
 
 .recent-models {
@@ -37,22 +39,36 @@
     justify-content: right;
     position: fixed;
     right: -110%;
-    bottom: 10%;
-    background-color: lightgray;
-    width: 98vw;
+    bottom: 8%;
+    
+    
+    width: 30vw;
     list-style: none;
     border-top-left-radius: 6px;
     border-bottom-left-radius: 6px;
     transition: 0.3s;
     text-align: center;
+
+    background-color: rgb(173, 216, 230, .93);
+    border-left: solid 1px lightslategray;
+    border-bottom: solid 1px lightslategray;
+    border-top: solid 1px lightslategray;    
     
-    
+}
+
+
+
+.footer-menu li {
+    background-color: rgb(173, 216, 230, .97);
+
 }
 
 .footer-menu.active {
     position: fixed;
     right: 0%;
     bottom: 10%;
+    width: 98vw;
+    opacity: 1;
     transition: 0.3s;
 }
 
