@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useEffect } from "react"
 import { DateTime } from "luxon"
 
-export const DateNav = ({currentDate, setCurrentDate, currentContent, setCurrentContent, currentMonth, setCurrentMonth}) => {
+export const DateNav = ({dayInUse, setDayInUse, currentContent, setCurrentContent, monthInUse, setMonthInUse}) => {
     const leftButton = "<"
     const rightButton = ">"    
 
@@ -10,24 +10,24 @@ export const DateNav = ({currentDate, setCurrentDate, currentContent, setCurrent
 
         const handleYesterdayClick = (event) => {
             event.preventDefault()        
-            // format currentDate into date obj
+            // format dayInUse into date obj
             // minus one day
-            // set new currentDate        
-            const formattedDate = DateTime.fromFormat(currentDate, "MMM d")
+            // set new dayInUse       
+            const formattedDate = DateTime.fromFormat(dayInUse, "MMM d")
             const newDate = formattedDate.minus({days: 1})
             const newDateString = newDate.toLocaleString({month: 'short', day: 'numeric'})
-            setCurrentDate(newDateString)
+            setDayInUse(newDateString)
         }
     
         const handleTomorrowClick = (event) => {
             event.preventDefault()
-            // format currentDate into date obj
+            // format dayInUse into date obj
             // add one day
-            // set new currentDate
-            const formattedDate = DateTime.fromFormat(currentDate, "MMM d")
+            // set new dayInUse
+            const formattedDate = DateTime.fromFormat(dayInUse, "MMM d")
             const newDate = formattedDate.plus({days: 1})
             const newDateString = newDate.toLocaleString({month: 'short', day: 'numeric'})
-            setCurrentDate(newDateString)
+            setDayInUse(newDateString)
             
         }
 
@@ -39,7 +39,7 @@ export const DateNav = ({currentDate, setCurrentDate, currentContent, setCurrent
         return (
             <>
                 <button onClick={handleYesterdayClick} className="date-button">{leftButton}</button>
-                <p onClick={handleMonthCalendarClick}>{currentDate}</p>
+                <p onClick={handleMonthCalendarClick}>{dayInUse}</p>
                 <button onClick={handleTomorrowClick} className="date-button">{rightButton}</button>
             </>
         )
@@ -52,10 +52,10 @@ export const DateNav = ({currentDate, setCurrentDate, currentContent, setCurrent
             // subtract one month
             // set new current month
             event.preventDefault()
-            const formattedMonth = DateTime.fromFormat(currentMonth, "MMM yyyy")
+            const formattedMonth = DateTime.fromFormat(monthInUse, "MMM yyyy")
             const newMonth = formattedMonth.minus({month: 1})                       
             const newMonthString = newMonth.toLocaleString({month: 'short', year: 'numeric'})      
-            setCurrentMonth(newMonthString)
+            setMonthInUse(newMonthString)
         }
 
         const handleNextMonthClick = (event) => {
@@ -63,25 +63,21 @@ export const DateNav = ({currentDate, setCurrentDate, currentContent, setCurrent
             // add one month
             // set new current month
             event.preventDefault()
-            const formattedDate = DateTime.fromFormat(currentMonth, "MMM yyyy")
+            const formattedDate = DateTime.fromFormat(monthInUse, "MMM yyyy")
             const newMonth = formattedDate.plus({month: 1})            
             const newMonthString = newMonth.toLocaleString({month: 'short', year: 'numeric'}) 
-            setCurrentMonth(newMonthString)
+            setMonthInUse(newMonthString)
         }
 
         const handleDayCalendarClick = (event) => {
-            event.preventDefault()  
-            
-            const monthComponent = document.querySelector(".month-component")
-            monthComponent.classList.remove("active")
-            
+            event.preventDefault()                                     
             setCurrentContent("DayComponent")
         }
 
         return (
             <>
                 <button onClick={handleLastMonthClick} className="date-button">{leftButton}</button>
-                <p onClick={handleDayCalendarClick}>{currentMonth}</p>
+                <p onClick={handleDayCalendarClick}>{monthInUse}</p>
                 <button onClick={handleNextMonthClick} className="date-button">{rightButton}</button>
             </>
         )
@@ -93,9 +89,11 @@ export const DateNav = ({currentDate, setCurrentDate, currentContent, setCurrent
             {currentContent == "DayComponent" ? 
                 <DayPicker />
             :
+            currentContent == "MonthComponent" ?
                 <MonthPicker />   
-        }
-            
+            :
+                null
+            }            
         </div>
     )
 }

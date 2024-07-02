@@ -14,10 +14,9 @@ export const Dashboard = () => {
     
 
     return (
-        <div className="dashboard">            
-            <Header />            
-            <ContentContainer currentContent={currentContent} setCurrentContent={setCurrentContent}/>
-            <Footer />
+        <div className="dashboard">
+                <Header />            
+                <ContentContainer currentContent={currentContent} setCurrentContent={setCurrentContent}/>                      
         </div>
     )
 }

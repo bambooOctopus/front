@@ -1,4 +1,4 @@
-export const Footer = () => {
+export const Footer = ({currentContent}) => {
 
     const handlePlusButtonClick = (event) => {
         
@@ -18,9 +18,24 @@ export const Footer = () => {
     return (
         <div className="footer">
             <div className="recent-models">
-                <button className="recent-button">todo</button>
-                <button className="recent-button">grocery</button>
-                <button className="recent-button">event</button>
+                {currentContent == "DayComponent" ? 
+                    <>
+                        <button className="recent-button">todo</button>
+                        <button className="recent-button">grocery</button>
+                        <button className="recent-button">habit</button>
+                    </>
+                :
+                currentContent == "MonthComponent" ?
+                    <>
+                        <button className="recent-button">filter 1</button>
+                        <button className="recent-button">filter 2</button>
+                        <button className="recent-button">filter 3</button>
+                    </>
+                :
+                    
+                    null
+                }
+                
             </div>
             <div className="footer-plus" onClick={handlePlusButtonClick}>+</div>
 
