@@ -1,19 +1,16 @@
 .month-component {
-    height: 140%;
-    width: 97%;    
+    height: 100%;
+    width: 100%; 
+    margin-top: 1rem;          
+    text-align: center;  
     
-    padding-top: 5.5rem;
-    z-index: -1;
-    text-align: center;
-    
-    margin-top: -5rem;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
     transition: 2s ease;
     
 }
 
-.month-component.active {
+/* .month-component.active {
     border: solid 2px lightgray;
     background: whitesmoke;
     
@@ -51,7 +48,7 @@
     }
     
       
-} 
+}  */
 
 /* .month-component.active {
     animation-duration: .5s;

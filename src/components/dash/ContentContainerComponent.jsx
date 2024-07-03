@@ -6,11 +6,13 @@ import { DateNav } from "./DateNavComponent"
 import { HabitBar } from "./HabitBarComponent"
 import { MonthComponent } from "../calendar/MonthComponent"
 import { DayComponent } from "../calendar/DayComponent"
-import { Footer } from "./FooterComponent"
 
 export const ContentContainer = ({currentContent, setCurrentContent}) => {
     const [ dayInUse, setDayInUse ] = useState("")
     const [ monthInUse, setMonthInUse ] = useState("")
+
+    
+    
     
 
     useEffect(() => {        
@@ -27,14 +29,16 @@ export const ContentContainer = ({currentContent, setCurrentContent}) => {
     
     return (
         <div className="content-container">
-            {/*  perhaps the DateNav should be rendered inside Month && Day Component
-                that way when you render those components, it could box itself up 
-                in the card animation and move around as well
-                it would help with the re-rendering
-                plus it only needs to be in the calendar components
-                all the other components that need to be rendered don't need it at all
-            */}
+          {/* this first element should be the
+                content-header, and it should render what it needs
+                based on what component is being rendered  
+                
+                and instead of combining the content-header and content-body for animation
+                have them be sepearate and go one after the other
+                add a border to each, shrink padding and font-size
+                move up
 
+          */}
             {currentContent == "DayComponent" ? 
                 <>
                     <DateNav dayInUse={dayInUse} setDayInUse={setDayInUse} currentContent={currentContent} setCurrentContent={setCurrentContent}
@@ -53,19 +57,18 @@ export const ContentContainer = ({currentContent, setCurrentContent}) => {
             
             <div className="content">
                 {currentContent == "MonthComponent" ?
-                    <>
-                        <MonthComponent />  
-                                              
+                    <>                    
+                        <MonthComponent />                                              
                     </>
                 :
                 currentContent == "DayComponent" ?
-                    <>                        
-                        <DayComponent />                        
-                    </>
+                    <>                                                
+                        <DayComponent currentContent={currentContent} />                       
+                    </>                    
                 :
                     null
                 }
-                <Footer currentContent={currentContent}/>                    
+                                 
             </div>
         </div>
     )

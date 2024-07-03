@@ -1,11 +1,13 @@
 .header {
     display: flex;
-    flex-direction: column;    
+    flex-direction: column; 
+      
     
 }
 
 .ham-notification-bar {    
     display: flex;
+    
     align-items: center;
     padding: .5rem 0rem;
     gap: 1rem;

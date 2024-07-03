@@ -9,6 +9,7 @@
     position: fixed;
     bottom: 0;
     opacity: 1;
+    
 }
 
 .recent-models {
@@ -40,6 +41,7 @@
     position: fixed;
     right: -110%;
     bottom: 8%;
+    
     
     
     width: 30vw;

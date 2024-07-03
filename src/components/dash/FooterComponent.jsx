@@ -33,7 +33,11 @@ export const Footer = ({currentContent}) => {
                     </>
                 :
                     
-                    null
+                <>
+                <button className="recent-button">filter 1</button>
+                <button className="recent-button">filter 2</button>
+                <button className="recent-button">filter 3</button>
+            </>
                 }
                 
             </div>
