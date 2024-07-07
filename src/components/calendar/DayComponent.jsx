@@ -1,63 +1,31 @@
 import "./day-component.css"
 import { Footer } from "../dash/FooterComponent"
-import { useSpring, useTransition, animated } from '@react-spring/web'
-import { useState } from "react"
+import { DateNav } from "./DateNavComponent"
+import { HabitBar } from "./HabitBarComponent"
 
-import { useEffect } from "react"
+export const DayComponent = ({currentContent, setCurrentContent, dayInUse, setDayInUse, monthInUse, setMonthInUse}) => {  
 
-export const DayComponent = ({currentContent}) => {
-    const [ isMounted, setIsMounted ] = useState(false)
-    // const [ isVisible, setIsVisible ] = useState(true)
-    const transitions = useTransition(isMounted, {
-        from: {x: -100, y: 800},
-        enter: {x: 0, y: 0},
-        leave: {x: 100, y: -120},
-
-    })
-
-    // const [ props, api ] = useSpring(() => ({
-    //     from: {y: 120},
-    //     to: {y: 100}
-    // }))
-    
-
-    // return (
-        
+    return (
+            <>  
+                <DateNav dayInUse={dayInUse} setDayInUse={setDayInUse} currentContent={currentContent} setCurrentContent={setCurrentContent}
+                        monthInUse={monthInUse} setMonthInUse={setMonthInUse}/>                    
+                <HabitBar />
            
-    //         //  <div className="day-component">
-    //         //     <p>day component</p>
-    //         //     <p>day component</p>
-    //         //     <p>day component</p>
-    //         //     <p>day component</p>
-    //         //     <p>day component</p>
-    //         //     <p>day component</p>
-    //         //     <p>day component</p>
-    //         //     <p>day component</p>
-    //         //     <p>day component</p>
-    //         //     <p>day component</p>
-    //         //     <Footer currentContent={"DayComponent"}/>
-    //         //  </div>
-            
-    //         <div className="day-component">                 
-    //             {transition((style, item) => {                    
-    //                 <animated.div style={style} className="my-component">{item}</animated.div> 
-    //             })}
+                <div className="day-component">
+                    <p>day component</p>
+                    <p>day component</p>
+                    <p>day component</p>
+                    <p>day component</p>
+                    <p>day component</p>
+                    <p>day component</p>
+                    <p>day component</p>
+                    <p>day component</p>
+                    <p>day component</p>
+                    <p>day component</p>
+                    <Footer currentContent={"DayComponent"}/>
+                </div>
 
-    //         </div>
-
-    useEffect(() => {
-        currentContent == "DayComponent" ? setIsMounted(true) : setIsMounted(false)
-        
-        return () => console.log("this isn't after the components lifecycle")
-
-    })
-
-    return transitions((style, item) => (
-        item ? <animated.div style={style} className="my-component">
-            <p>hellow</p>
-        </animated.div> : ''
-    ))
-}
-        
-    // )
-// }
+             </>
+    )
+}  
+          

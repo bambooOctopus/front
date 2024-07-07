@@ -3,17 +3,8 @@
     width: 100%;
     margin-top: 1rem;
     text-align: center;   
-    transition: 2s ease;    
+    transition: 2s ease;
+    
+    padding-top: 1rem;
 }
 
-.item { 
-    height: 100px;
-    width: 100px;
-    background-color: blue;
-}
-
-.my-component {
-    height: 60vh;
-    width: 70vw;
-    background-color: red;
-}

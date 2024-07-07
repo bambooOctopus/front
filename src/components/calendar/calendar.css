@@ -1,0 +1,20 @@
+.calendar-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.day {
+    width: 40vw;
+    height: 60vh;
+    
+    background-color: lightblue;
+}
+
+.month { 
+    width: 60vw;
+    height: 40vh;
+    background-color: red;
+}

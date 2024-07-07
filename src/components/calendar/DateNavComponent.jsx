@@ -4,7 +4,7 @@ import { DateTime } from "luxon"
 
 export const DateNav = ({dayInUse, setDayInUse, currentContent, setCurrentContent, monthInUse, setMonthInUse}) => {
     const leftButton = "<"
-    const rightButton = ">"    
+    const rightButton = ">"        
 
     const DayPicker = () => {
 
@@ -87,12 +87,16 @@ export const DateNav = ({dayInUse, setDayInUse, currentContent, setCurrentConten
     return (
         <div className="date-nav">
             {currentContent == "DayComponent" ? 
-                <DayPicker />
+                <>
+                    <DayPicker />                    
+                </>
             :
             currentContent == "MonthComponent" ?
-                <MonthPicker />   
+                <>
+                    <MonthPicker />                   
+                </>
             :
-                null
+                ""
             }            
         </div>
     )

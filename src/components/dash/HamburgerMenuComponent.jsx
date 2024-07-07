@@ -13,9 +13,12 @@ export const HamburgerMenu = () => {
         
         const plusButton = document.querySelector(".footer-plus")        
         const footerMenu = document.querySelector(".footer-menu")
+
+        if (plusButton != null && footerMenu != null) {
+            footerMenu.classList.remove("active")
+            plusButton.classList.remove("active") 
+        }      
         
-        footerMenu.classList.remove("active")
-        plusButton.classList.remove("active") 
     }
 
     return (
