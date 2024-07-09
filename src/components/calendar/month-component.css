@@ -5,12 +5,14 @@
     text-align: center;  
     
     border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
-    transition: 2s ease;
+    border-top-right-radius: 6px;   
 
     padding-top: 1rem;
+
+   
     
 }
+
 
 /* .month-component.active {
     border: solid 2px lightgray;

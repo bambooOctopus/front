@@ -87,9 +87,10 @@ li:last-child {
 
 .burger-menu.active {
     background-color: rgb(173, 216, 230, .93);
-    
+    position: fixed;
     left: 0;    
-    top: 8%;
+    top: 4%;
+    z-index: 1;
     
     width: 97vw;
     border-top-right-radius: 5px;

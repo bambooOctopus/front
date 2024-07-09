@@ -68,10 +68,11 @@
 .footer-menu.active {
     position: fixed;
     right: 0%;
-    bottom: 10%;
+    bottom: 12%;
     width: 98vw;
     opacity: 1;
     transition: 0.3s;
+    
 }
 
 .recent-button {

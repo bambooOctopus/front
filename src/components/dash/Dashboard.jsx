@@ -12,6 +12,7 @@ export const Dashboard = () => {
     const [ currentContent, setCurrentContent ] = useState("DayComponent")
     
     
+    
 
     return (
         <div className="dashboard">

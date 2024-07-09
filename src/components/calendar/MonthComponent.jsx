@@ -4,7 +4,7 @@ import "./month-component.css"
 import { DateNav } from "./DateNavComponent"
 import { Footer } from "../dash/FooterComponent"
 
-import { AnimatedCard } from "../AnimatedCard"
+
 
 export const MonthComponent = ({currentContent, setCurrentContent, dayInUse, setDayInUse, monthInUse, setMonthInUse}) => {     
     
@@ -13,7 +13,7 @@ export const MonthComponent = ({currentContent, setCurrentContent, dayInUse, set
             <DateNav currentContent={currentContent} setCurrentContent={setCurrentContent} dayInUse={dayInUse}
               setDayInUse={setDayInUse} monthInUse={monthInUse} setMonthInUse={setMonthInUse}/>       
         
-            <div className="month-component">               
+            <div className="month-component active">               
                 <p>month component</p>
                 <p>month component</p>
                 <p>month component</p>

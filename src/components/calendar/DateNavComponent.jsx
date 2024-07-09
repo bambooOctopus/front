@@ -1,10 +1,15 @@
 import { useState } from "react"
 import { useEffect } from "react"
 import { DateTime } from "luxon"
+import { animateOnUnMount } from "../helpers/animateOnUnMount"
 
 export const DateNav = ({dayInUse, setDayInUse, currentContent, setCurrentContent, monthInUse, setMonthInUse}) => {
     const leftButton = "<"
-    const rightButton = ">"        
+    const rightButton = ">"   
+    
+    // I think this is where the animateOnUnMount should fire off
+    // it's where you are actually changing state
+    // that's where the animate should be fired from 
 
     const DayPicker = () => {
 
@@ -32,8 +37,10 @@ export const DateNav = ({dayInUse, setDayInUse, currentContent, setCurrentConten
         }
 
         const handleMonthCalendarClick = (event) => {
-            event.preventDefault()                                    
-            setCurrentContent("MonthComponent")
+            event.preventDefault()    
+            // add animation before removing from dom
+            animateOnUnMount(setCurrentContent, "MonthComponent")                                
+            // setCurrentContent("MonthComponent")
         }
         
         return (
@@ -70,8 +77,10 @@ export const DateNav = ({dayInUse, setDayInUse, currentContent, setCurrentConten
         }
 
         const handleDayCalendarClick = (event) => {
-            event.preventDefault()                                     
-            setCurrentContent("DayComponent")
+            event.preventDefault()                                  
+            // add animation before removing from dom   
+            animateOnUnMount(setCurrentContent, "DayComponent") 
+            // setCurrentContent("DayComponent")
         }
 
         return (

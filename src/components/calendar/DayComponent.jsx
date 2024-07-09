@@ -11,7 +11,7 @@ export const DayComponent = ({currentContent, setCurrentContent, dayInUse, setDa
                         monthInUse={monthInUse} setMonthInUse={setMonthInUse}/>                    
                 <HabitBar />
            
-                <div className="day-component">
+                <div className="day-component active">
                     <p>day component</p>
                     <p>day component</p>
                     <p>day component</p>
