@@ -14,6 +14,7 @@ export const MonthComponent = ({currentContent, setCurrentContent, dayInUse, set
               setDayInUse={setDayInUse} monthInUse={monthInUse} setMonthInUse={setMonthInUse}/>       
         
             <div className="month-component active">               
+                {/* <p>month component</p>
                 <p>month component</p>
                 <p>month component</p>
                 <p>month component</p>
@@ -22,8 +23,7 @@ export const MonthComponent = ({currentContent, setCurrentContent, dayInUse, set
                 <p>month component</p>
                 <p>month component</p>
                 <p>month component</p>
-                <p>month component</p>
-                <p>month component</p>
+                <p>month component</p> */}
                 <Footer currentContent={"MonthComponent"} />
             </div>
 

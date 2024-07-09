@@ -12,6 +12,7 @@ export const DayComponent = ({currentContent, setCurrentContent, dayInUse, setDa
                 <HabitBar />
            
                 <div className="day-component active">
+                    {/* <p>day component</p>
                     <p>day component</p>
                     <p>day component</p>
                     <p>day component</p>
@@ -20,8 +21,7 @@ export const DayComponent = ({currentContent, setCurrentContent, dayInUse, setDa
                     <p>day component</p>
                     <p>day component</p>
                     <p>day component</p>
-                    <p>day component</p>
-                    <p>day component</p>
+                    <p>day component</p> */}
                     <Footer currentContent={"DayComponent"}/>
                 </div>
 
