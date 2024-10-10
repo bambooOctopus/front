@@ -1,0 +1,22 @@
+.day-grid {
+    display: grid;
+    flex-direction: column;
+    justify-content: center;    
+    padding-top: 1.3rem;
+}
+
+.mapped-lists {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.8rem;
+}
+
+.checklist-card {    
+    border: solid 1px lightblue;        
+    border-radius: 5px;    
+    max-width: 5rem;
+}
+
+.checklist-card p {
+    font-size: 12px;
+}

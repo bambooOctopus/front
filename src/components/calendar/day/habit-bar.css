@@ -1,0 +1,41 @@
+.habit-bar {   
+    width: 90%; 
+    /* display: flex;
+    flex-direction: row; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    align-items: center;    
+    justify-content: center;
+    margin-top: .2rem;
+    gap: .5rem;       
+    overflow-x: scroll;   
+    padding-left: 0.8rem;
+}
+
+.habit-button {
+    background-color: lightgreen;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 1rem;
+    height: 1rem;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 12px;
+}
+
+.habit-bar-icon {
+    height: 1.5rem;
+}
+
+.habit-icon-button {
+    padding: 0.3rem 0.5rem;    
+    border: solid 1px lightgray;
+    background-color: white;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

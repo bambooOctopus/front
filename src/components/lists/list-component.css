@@ -1,0 +1,102 @@
+.form-container {
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-top: solid 1px gray;
+    border-bottom: solid 1px gray;
+    
+}
+
+.list-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.2rem;
+        
+    
+}
+
+.list-form input {
+    width: 80%;
+    
+}
+
+.list-items {
+    width: 96%;  
+    height: 100%;  
+    display: flex;
+    margin-top: 1rem;
+    align-items: center;
+    flex-direction: column;
+    gap: .5rem;    
+    overflow-y: scroll;
+    
+    
+}
+
+.list-item.active {
+    width: 85%;
+    height: 1.5rem;    
+    background-color: whitesmoke;
+    padding: 0.3rem 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.list-item.hidden {
+    display: none;
+}
+
+
+
+.delete-btn {
+    /* background-color: rgb(197, 11, 11); */
+    background-color: rgb(237, 65, 65);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: 50%;
+}
+
+.edit-list-form.active {
+    background-color: red;
+    padding: 3rem;
+       
+}
+
+.edit-list-form.hidden {
+    display: none;
+    transition: 0.3s ease-in-out; 
+}
+
+
+.delete-list-button {
+    background-color: rgb(237, 65, 65);
+    color:white;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    padding: 0.3rem 0.5rem;
+    border-radius: 6px;
+    
+}
+
+.edit-list-button {
+    background-color: goldenrod;
+    color: white;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    padding: 0.3rem 0.5rem;
+    border-radius: 6px;
+
+}

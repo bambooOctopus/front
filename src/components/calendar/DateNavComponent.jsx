@@ -1,112 +1,78 @@
-import { useState } from "react"
-import { useEffect } from "react"
-import { DateTime } from "luxon"
-import { animateOnUnMount } from "../helpers/animateOnUnMount"
+import { animateOnUnMount } from "../helpers/animation/animateOnUnMount"
+import { monthGridFade } from "../helpers/animation/monthGridFade"
+import { dayFade } from "../helpers/animation/dayFade"
+import { MonthComponent } from "./month/MonthComponent"
 
-export const DateNav = ({dayInUse, setDayInUse, currentContent, setCurrentContent, monthInUse, setMonthInUse}) => {
-    const leftButton = "<"
-    const rightButton = ">"   
+
+
+import { formatMonthString } from "../helpers/calendar/dateFormats"
+import { formatDayString } from "../helpers/calendar/dateFormats"
+import { DayComponent } from "./day/DayComponent"
+import { unMountDayForm } from "../helpers/animation/unMountDayForm"
+
+const leftButton = "<"
+const rightButton = ">"
+
+export const DayNav = ({setCurrentCalendarView, dayInUse, setDayInUse, activeForm, setActiveForm, user, setCurrentContent }) => {
+    const dayString = formatDayString(dayInUse)
+
     
-    // I think this is where the animateOnUnMount should fire off
-    // it's where you are actually changing state
-    // that's where the animate should be fired from 
-
-    const DayPicker = () => {
-
-        const handleYesterdayClick = (event) => {
-            event.preventDefault()        
-            // format dayInUse into date obj
-            // minus one day
-            // set new dayInUse       
-            const formattedDate = DateTime.fromFormat(dayInUse, "MMM d")
-            const newDate = formattedDate.minus({days: 1})
-            const newDateString = newDate.toLocaleString({month: 'short', day: 'numeric'})
-            setDayInUse(newDateString)
-        }
     
-        const handleTomorrowClick = (event) => {
-            event.preventDefault()
-            // format dayInUse into date obj
-            // add one day
-            // set new dayInUse
-            const formattedDate = DateTime.fromFormat(dayInUse, "MMM d")
-            const newDate = formattedDate.plus({days: 1})
-            const newDateString = newDate.toLocaleString({month: 'short', day: 'numeric'})
-            setDayInUse(newDateString)
-            
-        }
 
-        const handleMonthCalendarClick = (event) => {
-            event.preventDefault()    
-            // add animation before removing from dom
-            animateOnUnMount(setCurrentContent, "MonthComponent")                                
-            // setCurrentContent("MonthComponent")
-        }
-        
-        return (
-            <>
-                <button onClick={handleYesterdayClick} className="date-button">{leftButton}</button>
-                <p onClick={handleMonthCalendarClick}>{dayInUse}</p>
-                <button onClick={handleTomorrowClick} className="date-button">{rightButton}</button>
-            </>
-        )
+    const handleSwitchToMonthViewClick = (event) => {
+        event.preventDefault()           
+        animateOnUnMount(setCurrentCalendarView, <MonthComponent setCurrentCalendarView={setCurrentCalendarView} initialMonth={dayInUse} user={user} setCurrentContent={setCurrentContent}/>)
     }
 
-    const MonthPicker = () => {                   
+    const handlePreviousDayClick = () => {
+        const newDay = dayInUse.minus({day: 1})        
+        unMountDayForm(setActiveForm, "")
+        dayFade(setDayInUse, newDay)
+        // setDayInUse(newDay)
+    }
 
-        const handleLastMonthClick = (event) => {
-            // format date to obj
-            // subtract one month
-            // set new current month
-            event.preventDefault()
-            const formattedMonth = DateTime.fromFormat(monthInUse, "MMM yyyy")
-            const newMonth = formattedMonth.minus({month: 1})                       
-            const newMonthString = newMonth.toLocaleString({month: 'short', year: 'numeric'})      
-            setMonthInUse(newMonthString)
-        }
-
-        const handleNextMonthClick = (event) => {
-            // format date to obj
-            // add one month
-            // set new current month
-            event.preventDefault()
-            const formattedDate = DateTime.fromFormat(monthInUse, "MMM yyyy")
-            const newMonth = formattedDate.plus({month: 1})            
-            const newMonthString = newMonth.toLocaleString({month: 'short', year: 'numeric'}) 
-            setMonthInUse(newMonthString)
-        }
-
-        const handleDayCalendarClick = (event) => {
-            event.preventDefault()                                  
-            // add animation before removing from dom   
-            animateOnUnMount(setCurrentContent, "DayComponent") 
-            // setCurrentContent("DayComponent")
-        }
-
-        return (
-            <>
-                <button onClick={handleLastMonthClick} className="date-button">{leftButton}</button>
-                <p onClick={handleDayCalendarClick}>{monthInUse}</p>
-                <button onClick={handleNextMonthClick} className="date-button">{rightButton}</button>
-            </>
-        )
-    }  
-
+    const handleNextDayClick = () => {
+        const newDay = dayInUse.plus({day: 1})
+        unMountDayForm(setActiveForm, "")
+        dayFade(setDayInUse, newDay)
+        // setDayInUse(newDay)
+    }    
 
     return (
         <div className="date-nav">
-            {currentContent == "DayComponent" ? 
-                <>
-                    <DayPicker />                    
-                </>
-            :
-            currentContent == "MonthComponent" ?
-                <>
-                    <MonthPicker />                   
-                </>
-            :
-                ""
-            }            
+            <button onClick={handlePreviousDayClick} className="arrow-button">{leftButton}</button>
+            <button onClick={handleSwitchToMonthViewClick} className="date-button">{dayString}</button>
+            <button onClick={handleNextDayClick} className="arrow-button">{rightButton}</button>
+        </div>
+    )
+}
+
+export const MonthNav = ({setCurrentCalendarView, monthInUse, setMonthInUse, setCurrentContent, user}) => {  
+    // monthInUse is a date obj; format it to render on screen
+    const monthString = formatMonthString(monthInUse)    
+    
+    const handleChangeToDayView = (event) => {
+        event.preventDefault()
+        animateOnUnMount(setCurrentCalendarView, <DayComponent setCurrentCalendarView={setCurrentCalendarView} setCurrentContent={setCurrentContent} user={user}/>)        
+    }
+
+    const handlePreviousMonthClick = () => {       
+        const newMonth = monthInUse.minus({month: 1})          
+        monthGridFade(setMonthInUse, newMonth)       
+    }
+
+    const handleNextMonthClick = () => {          
+        const newMonth = monthInUse.plus({month: 1})
+        monthGridFade(setMonthInUse, newMonth)        
+    }
+
+    
+    
+    return (
+        <div className="date-nav">
+            <button onClick={handlePreviousMonthClick} className="arrow-button">{leftButton}</button>
+            <button onClick={handleChangeToDayView} className="date-button">{monthString}</button>
+            <button onClick={handleNextMonthClick} className="arrow-button">{rightButton}</button>
         </div>
     )
 }

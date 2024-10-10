@@ -1,6 +1,7 @@
 import { useState } from "react"
 
 export const MessageBar = () => {
+    // this messages state should probably be in the dashboard
     const [ messages, setMessages ] = useState("")
     return (
         <>

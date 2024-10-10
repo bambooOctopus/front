@@ -1,0 +1,163 @@
+.month-component {
+    height: 100%;
+    width: 99%; 
+    
+    text-align: center;  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;     
+    
+}
+
+.day-names {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: 1 2rem;
+    gap: .2rem;
+    margin-bottom: .3rem;;
+}
+
+.day-name {   
+    text-align: center;
+    font-size: 14px;
+}
+
+.month-grid.active {
+    height: 100%;
+    width: 98%;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(6, 2.5rem);
+    gap: .2rem;    
+    transition: 0.2s ease-in-out;
+    
+}
+
+.month-grid.hide {
+    height: 100%;
+    width: 98%;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(6, 2.5rem);
+    gap: .2rem;    
+    transition: 0.2s ease-in-out;
+    opacity: 0.1;
+
+}
+
+.active-day {    
+    border: solid 1px lightgray;
+    border-radius: 2px; 
+    transition: 0.3s ease-in-out;   
+}
+
+.active-day:active {   
+     
+    background-color: lightblue;
+    border: solid 1px lightblue;
+    opacity: 0.8;    
+    animation-duration: 1s;
+    animation-name: enlargeDay;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+
+
+
+
+.prev-day {
+    border: solid 1px lightgray;
+    
+    border-radius: 2px;    
+}
+
+.prev-day .icon-bar {
+    background-color: lightgray;
+}
+
+.next-day {
+    border: solid 1px lightgray;    
+    border-radius: 2px;  
+}
+
+.next-day .icon-bar {
+    height: 12px;
+    width: 100%;
+    background-color: orange;
+    margin-top: .8rem;
+    padding-left: 2px;
+    text-align: left;
+    font-size: 12px;
+    display: flex;
+    gap: 2px;
+}
+
+
+
+.date {
+    font-size: 12px;
+    position: fixed;
+    margin-left: 1px;
+    transition: 0.3s ease-in-out;
+    
+    
+}
+
+.icon-bar {
+    height: 12px;
+    width: 100%;
+    background-color: aqua;
+    margin-top: .8rem;
+    padding-left: 2px;
+    text-align: left;
+    font-size: 12px;
+
+    display: flex;
+    gap: 2px;
+}
+
+.status-bar {
+    height: 12px;
+    width: 100%;   
+    margin-top: .1rem;
+}
+
+.month-habit-icon {
+    height: 12px;
+    width: 12px;
+    font-size: 8px;
+    border-radius: 50%;
+    background-color: goldenrod;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.status-icon {
+    height: 10px;
+    width: 10px;
+}
+
+@keyframes enlargeDay {
+    from {         
+        z-index: 9999;     
+        opacity: 0.6;      
+    }    
+
+    to {
+        background-color: blue;        
+        transform: scale(50);        
+        opacity: 0.4;
+    }
+}
+
+
+
+

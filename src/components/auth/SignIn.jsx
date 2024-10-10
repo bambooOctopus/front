@@ -3,6 +3,8 @@ import { useContext } from "react"
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 
+import './auth.css'
+
 
 import { MainContext } from "../Provider.jsx"
 import { signInRequest } from "../URLRequests.jsx"

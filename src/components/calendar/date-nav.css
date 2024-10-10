@@ -1,15 +1,23 @@
-.date-nav {    
-    background-color: rgb(173, 216, 230, .8);
+.date-nav {            
     padding: .3rem .5rem;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 1.5rem;
+    width: 100%;
+    margin-bottom: 0.3rem;
+    margin-top: 0.3rem;
 }
 
-.date-button {
+.arrow-button {
     padding: .3rem 1rem;
     border: none;
     background-color: orange;
     border-radius: 5px;
 }
+
+.date-button {
+    background-color: white;    
+    border: none;
+}
+

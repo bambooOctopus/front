@@ -1,0 +1,88 @@
+.habit-form {  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: .8rem;
+    
+    width: 98%;    
+    height: 40vh;
+    
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    transition: 0.2s ease-in-out;  
+    background-color: red;  
+    transform: translateY(140%) scaleX(0.75);
+    
+    animation-duration: 0.5s;
+    animation-name: formSlideIn;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    border-top-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+
+    overflow-y: scroll;     
+}
+
+.habit-icon-container {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: .5rem;
+    
+    
+}
+
+.habit-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 2px whitesmoke;
+    border-radius: 6px;
+    padding: 0.5rem;
+
+    transition: 0.3s ease-in-out;
+}
+
+.habit-icon.selected {
+    border: solid 2px lightgreen;
+    background-color: whitesmoke;
+    
+}
+
+.habit-form input {
+    width: 70%;
+    padding: 0.1rem 0.3rem;
+    font-size: 16px;
+}
+
+.hide-form {
+    animation-duration: 0.5s;
+    animation-name: formSlideOut;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+
+}
+
+
+
+
+
+.habit-input-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    gap: 1rem;
+     
+}
+
+.habit-plus {
+    background-color: lightgreen;
+    border: none;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 1.7rem;
+}
